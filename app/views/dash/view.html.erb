@@ -53,16 +53,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <%= link_to 'HOME' , view_landing_path %>
+                        <%= link_to 'HOME' , view_dash_path %>
                     </li>
                     <li>
-                        <%= link_to 'ABOUT', view_about_path %>
+                        <%= link_to 'Add People to Follow', new_name_path %>
                     </li>
                     <li>
                         <a href="http://www.iiitd.ac.in/">IIIT-D</a>
                     </li>
                     <li>
-                        <%= link_to 'CONTACT US', view_contact_path %>
+                        <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
                     </li>
                 </ul>
             </div>
@@ -83,7 +83,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="img-responsive img-full" src="http://www.videoinspiration.net/blog/wp-content/uploads/2014/09/Friendship.jpg" alt="">
+                                <img class="img-responsive img-full" src="http://www.hdwallpapers.in/walls/happy_friendship_day-HD.jpg" alt="">
                             </div>
                             
                         </div>
@@ -109,13 +109,38 @@
            </div> </div>
 
         </div>
+        <% @names.each do |f| %>
 
-<h1> See what your friends are up to </h1>
-<% @names.each do |f| %>
-<% @client.user_timeline(f.name).take(5).each do |g| %>
-<p> @<%= f.name %>: <%= g.text %> </p>
-<% end %>
+<div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Tweets by
+                        <strong>@<%= f.name %></strong>
+                    </h2>
+                    <hr>
+
+                    <p><% @client.user_timeline(f.name).take(5).each do |g| %>
+                    <div style ="text-align:center">->  <%= g.text %></div></p>
+                    	<% end %>
+                </div>
+            </div>
+        </div>
+
+
 <br>
 <% end %> 
 			
-<%= link_to 'Add Name', new_name_path %>
+
+
+
+
+ <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Follow , 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>

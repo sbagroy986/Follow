@@ -1,4 +1,8 @@
-<%= form_for(@name) do |f| %>
+div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <%= form_for(@name) do |f| %>
   <% if @name.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@name.errors.count, "error") %> prohibited this name from being saved:</h2>
@@ -9,13 +13,22 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <% end %>  
+                    <h2 class="intro-text text-center">Add in the username
+                        <strong>of somebody you want to follow</strong>
+                    </h2>
+                    <hr>
+                    <div class="field" style = "padding-left:500px;">
+    <br>
+    <%= f.text_field :name, :placeholder => 'Twitter Username' %>
   </div>
-  <div class="actions">
+  <div class="actions" style = "padding-left:540px;">
     <%= f.submit %>
   </div>
+                </div>
+            </div>
+        </div>
+
+
+
 <% end %>
