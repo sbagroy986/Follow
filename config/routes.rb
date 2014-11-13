@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'about/view' => 'about#view', :as => :view_about
+
+
+  get 'contact/view' => 'contact#view', :as => :view_contact
+
 devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" } 
 get 'landing/view' => 'landing#view', :as => :view_landing
 
