@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Follow</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,6 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if user_signed_in? %>
+
+Signed in!
+<%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+<% else %>
+<%= link_to "Sign up", new_user_registration_path %> or
+<%= link_to "Sign in", new_user_session_path %>
+<%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+<% end %>
+<p style ="padding-bot:50px"> </p>
 
 <%= yield %>
 

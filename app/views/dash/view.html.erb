@@ -1,0 +1,11 @@
+<h1> See what your friends are up to </h1>
+
+
+<% @names.each do |f| %>
+<% @client.user_timeline(f.name).take(5).each do |g| %>
+<p> @<%= f.name %>: <%= g.text %> </p>
+<% end %>
+<br>
+<% end %> 
+			
+<%= link_to 'Add Name', new_name_path %>
