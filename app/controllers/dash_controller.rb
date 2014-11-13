@@ -6,6 +6,6 @@ class DashController < ApplicationController
      config.access_token        = "2895338556-OQjfqvq7stJpgQmAY06Sy5iT1cSZXiT3QP9LbUo"
      config.access_token_secret = "n8HRDu7qsUZthqApCZdEp3pQlAaVbPizByIXB1zYhvzHD" 
    end
-   @names = Name.all
+   @names = User.find(session[:user_id]).names
   end
 end

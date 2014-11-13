@@ -12,6 +12,7 @@
     <% @names.each do |name| %>
       <tr>
         <td><%= name.name %></td>
+        
         <td><%= link_to 'Show', name %></td>
         <td><%= link_to 'Edit', edit_name_path(name) %></td>
         <td><%= link_to 'Destroy', name, method: :delete, data: { confirm: 'Are you sure?' } %></td>

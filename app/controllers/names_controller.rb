@@ -27,7 +27,9 @@ class NamesController < ApplicationController
     @name = Name.new(name_params)
 
     respond_to do |format|
+      @name.user_id = session[:user_id]
       if @name.save
+        @name.user_id = session[:user_id]
         format.html { redirect_to @name, notice: 'Name was successfully created.' }
         format.json { render :show, status: :created, location: @name }
       else
@@ -69,6 +71,6 @@ class NamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def name_params
-      params.require(:name).permit(:name)
+      params.require(:name).permit(:name, :user_id)
     end
 end
