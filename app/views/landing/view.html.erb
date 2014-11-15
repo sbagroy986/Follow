@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+<% if session[:user_id] %>
+redirect_to  view_dash_path
+<% end %>
 
     <title>Business Casual - Start Bootstrap Theme</title>
 
