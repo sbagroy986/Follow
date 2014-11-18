@@ -8,4 +8,11 @@ class DashController < ApplicationController
    end
    @names = User.find(session[:user_id]).names
   end
+   def destroy
+    @name.destroy
+    respond_to do |format|
+      format.html { redirect_to view_dash_path, notice: 'Name was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 end

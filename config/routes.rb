@@ -8,7 +8,7 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
 get 'landing/view' => 'landing#view', :as => :view_landing
 
  get 'dash/view' => 'dash#view', :as => :view_dash
- root 'landing#view'
+ root 'dash#view'
  resources :names
 
   # The priority is based upon order of creation: first created -> highest priority.

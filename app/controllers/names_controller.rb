@@ -30,7 +30,7 @@ class NamesController < ApplicationController
       @name.user_id = session[:user_id]
       if @name.save
         @name.user_id = session[:user_id]
-        format.html { redirect_to @name, notice: 'Name was successfully created.' }
+        format.html { redirect_to view_dash_path, notice: 'Name was successfully created.' }
         format.json { render :show, status: :created, location: @name }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class NamesController < ApplicationController
   def destroy
     @name.destroy
     respond_to do |format|
-      format.html { redirect_to names_url, notice: 'Name was successfully destroyed.' }
+      format.html { redirect_to view_dash_path, notice: 'Name was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
