@@ -122,7 +122,7 @@
                     </div>
                     <hr>
 
-                    <p><% @client.user_timeline(f.name).take(5).each do |g| %>
+                    <p><% @client.user_timeline(f.name).take(10).each do |g| %>
                     <div style ="text-align:center">->  <%= g.text %></div></p>
                     	<% end %>
                 </div>
